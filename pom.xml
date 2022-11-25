@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.statsmind</groupId>
+        <artifactId>statsmind-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.statsmind.bootstrap</groupId>
+    <artifactId>app-bootstrap</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>bootstrap-common</module>
+        <module>bootstrap-dal</module>
+        <module>bootstrap-service</module>
+        <module>bootstrap-web</module>
+        <module>bootstrap-ui</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <commons.version>1.0-SNAPSHOT</commons.version>
+        <app.version>1.0-SNAPSHOT</app.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.statsmind.commons</groupId>
+                <artifactId>commons-core</artifactId>
+                <version>${commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.statsmind.commons</groupId>
+                <artifactId>commons-jpa</artifactId>
+                <version>${commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.statsmind.commons</groupId>
+                <artifactId>commons-security</artifactId>
+                <version>${commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.statsmind.bootstrap</groupId>
+                <artifactId>bootstrap-common</artifactId>
+                <version>${app.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.statsmind.bootstrap</groupId>
+                <artifactId>bootstrap-dal</artifactId>
+                <version>${app.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.statsmind.bootstrap</groupId>
+                <artifactId>bootstrap-service</artifactId>
+                <version>${app.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.statsmind.bootstrap</groupId>
+                <artifactId>bootstrap-ui</artifactId>
+                <version>${app.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.statsmind.bootstrap</groupId>
+                <artifactId>bootstrap-web</artifactId>
+                <version>${app.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
