@@ -3,11 +3,12 @@ package com.statsmind.bootstrap.dal.config;
 import com.statsmind.commons.security.SM3PasswordEncoder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class DalConfigurer {
     @Bean
-    SM3PasswordEncoder passwordEncoder() {
+    PasswordEncoder passwordEncoder() {
         return new SM3PasswordEncoder() {
             @Override
             public String encode(CharSequence rawPassword) {

@@ -17,6 +17,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.statsmind.commons</groupId>
             <artifactId>commons-core</artifactId>
         </dependency>
@@ -24,6 +29,11 @@
         <dependency>
             <groupId>com.statsmind.commons</groupId>
             <artifactId>commons-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.statsmind.commons</groupId>
+            <artifactId>commons-web</artifactId>
         </dependency>
     </dependencies>
 

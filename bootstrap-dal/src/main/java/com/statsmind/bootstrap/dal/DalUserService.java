@@ -6,6 +6,7 @@ import com.statsmind.bootstrap.dal.DalUserDao;
 import com.statsmind.commons.security.SM3PasswordEncoder;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class DalUserService {
     @NonNull
-    private SM3PasswordEncoder passwordEncoder;
+    private PasswordEncoder passwordEncoder;
     @NonNull
     private DalDaoInflector dalDaoInflector;
 
@@ -25,5 +26,13 @@ public class DalUserService {
 
         DalUserDao dalUserDao = dalDaoInflector.user();
         return dalUserDao.save(user);
+    }
+
+    public UserEntity getUserById(Long userId) {
+        return dalDaoInflector.user().findById(userId).orElse(null);
+    }
+
+    public UserEntity getUserByMobile(String mobile) {
+        return dalDaoInflector.user().findByMobile(mobile).fetchOne();
     }
 }

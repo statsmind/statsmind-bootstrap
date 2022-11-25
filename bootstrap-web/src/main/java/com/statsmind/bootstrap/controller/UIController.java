@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UIController {
     private static UILoader uiLoader = new UILoader();
 
-    @RequestMapping(value = "/", method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
+    @RequestMapping(value = {"/", "/portal/**"}, method = RequestMethod.GET, produces = MediaType.TEXT_HTML_VALUE)
     public String uiIndex() {
         return "index";
     }

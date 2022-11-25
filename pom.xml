@@ -46,6 +46,12 @@
 
             <dependency>
                 <groupId>com.statsmind.commons</groupId>
+                <artifactId>commons-web</artifactId>
+                <version>${commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.statsmind.commons</groupId>
                 <artifactId>commons-security</artifactId>
                 <version>${commons.version}</version>
             </dependency>
