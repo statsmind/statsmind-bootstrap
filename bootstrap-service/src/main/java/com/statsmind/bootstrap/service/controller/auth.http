@@ -1,0 +1,4 @@
+###
+GET http://localhost:8099/api/auth/login
+
+{"mobile": "13910022763", "password": "123456"}

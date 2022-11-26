@@ -85,7 +85,7 @@ public class AppMvcConfigurer implements WebMvcConfigurer {
             .order(1);
 
         registry.addInterceptor(apiInterceptor)
-            .excludePathPatterns("/api/v1/auth/**")
+            .excludePathPatterns("/api/auth/**")
             .addPathPatterns("/api/**")
             .order(2);
     }

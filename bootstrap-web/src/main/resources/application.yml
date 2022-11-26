@@ -3,12 +3,12 @@ server:
 
 spring:
   datasource:
-    url: jdbc:h2:mem:test_db;DATABASE_TO_UPPER=false;MODE=MYSQL;DB_CLOSE_ON_EXIT=FALSE;
+    url: jdbc:h2:mem:test_db;DATABASE_TO_UPPER=false;MODE=MYSQL;DB_CLOSE_ON_EXIT=FALSE;NON_KEYWORDS=USER;
   jpa:
     hibernate:
       ddl-auto: update
   h2:
     console:
       enabled: true
-
-debug: true
+  thymeleaf:
+    prefix: classpath:/static/

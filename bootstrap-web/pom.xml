@@ -86,10 +86,6 @@
                         </goals>
                     </execution>
                 </executions>
-
-                <configuration>
-                    <finalName>bootstrap-web</finalName>
-                </configuration>
             </plugin>
         </plugins>
     </build>

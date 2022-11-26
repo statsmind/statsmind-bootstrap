@@ -18,21 +18,16 @@ public class DalUserService {
     @NonNull
     private DalDaoInflector dalDaoInflector;
 
-    @Transactional
-    public UserEntity createUser(String mobile, String password) {
-        UserEntity user = new UserEntity()
-            .setMobile(mobile)
-            .setPasswordHash(passwordEncoder.encode(password));
-
-        DalUserDao dalUserDao = dalDaoInflector.user();
-        return dalUserDao.save(user);
-    }
-
     public UserEntity getUserById(Long userId) {
         return dalDaoInflector.user().findById(userId).orElse(null);
     }
 
     public UserEntity getUserByMobile(String mobile) {
         return dalDaoInflector.user().findByMobile(mobile).fetchOne();
+    }
+
+    @Transactional
+    public UserEntity saveUser(UserEntity user) {
+        return dalDaoInflector.user().save(user);
     }
 }

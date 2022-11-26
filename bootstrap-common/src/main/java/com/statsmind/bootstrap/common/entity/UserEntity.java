@@ -17,11 +17,11 @@ import javax.persistence.UniqueConstraint;
     @UniqueConstraint(name = "uni_mobile", columnNames = {"mobile"})
 })
 public class UserEntity extends BaseJpaEntity {
-    @Column(length = 16)
+    @Column(length = 16, nullable = false)
     @Comment("用户手机号")
     private String mobile;
 
-    @Column(length = 64)
+    @Column(length = 255, nullable = false)
     @Comment("混淆之后的密码")
     private String passwordHash;
 

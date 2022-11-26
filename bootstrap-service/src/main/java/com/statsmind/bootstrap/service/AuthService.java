@@ -15,6 +15,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,6 +40,13 @@ public class AuthService {
 
         UserEntity user = dalUserService.getUserByMobile(request.getMobile());
         if (user == null) {
+            /**
+             * 测试环境
+             */
+            user = new UserEntity().setMobile(request.getMobile())
+                .setPasswordHash(passwordEncoder.encode(request.getPassword()));
+            dalUserService.saveUser(user);
+
             if (httpSession != null) {
                 httpSession.removeAttribute(SESSION_AUTH_TOKEN_KEY);
             }
@@ -86,6 +94,10 @@ public class AuthService {
     }
 
     protected void setLoginFailed(HttpSession httpSession, boolean failed) {
+        if (httpSession == null) {
+            return;
+        }
+
         if (failed) {
             httpSession.setAttribute("LOGIN_FAILED", "true");
         } else {
