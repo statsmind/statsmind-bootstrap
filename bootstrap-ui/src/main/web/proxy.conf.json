@@ -1,6 +1,10 @@
 {
   "/api/": {
-    "target": "http://127.0.0.1:7003",
+    "target": "http://127.0.0.1:8099",
+    "secure": false
+  },
+  "/min-maps/": {
+    "target": "http://127.0.0.1:4200/assets/min-maps",
     "secure": false
   }
 }
